@@ -1,0 +1,63 @@
+\documentclass[13pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}%matma
+\usepackage{graphicx}%zdjecia
+\usepackage{siunitx}
+\usepackage{a4wide}
+\graphicspath{{./figures/}}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newcommand{\definebox}[2]{%
+  \newcounter{#1}
+  \newenvironment{#1}[1][]{%
+    \stepcounter{#1}%
+    \mdfsetup{%
+        frametitle={%
+            \tikz[baseline=(current bounding box.east),outer sep=0pt]
+            \node[anchor=east,rectangle,fill=white]
+            {\strut \MakeUppercase#1~\csname the#1\endcsname\ifstrempty{##1}{}{:~##1}};}}%
+    \mdfsetup{innertopmargin=1pt,linecolor=#2,%
+        linewidth=2pt,topline=true,
+        frametitleaboveskip=\dimexpr-\ht\strutbox\relax,}%
+    \begin{mdframed}[]\relax%
+    }{\end{mdframed}}%
+}
+
+\newcommand{\fig}[3]{
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=#1\textwidth]{#2}
+	\caption{#3}
+\end{figure}
+}
+
+\definebox{definition}{black!60}
+
+\title{Nakładanie warstw niskociśnieniową metodą Cold Spray}
+\author{Mikołaj Małecki 237339 K00-24b}
+\begin{document}
+	\maketitle
+\section{Wprowadzenie}
+\fig{0.8}{bef.jpg}{lol}
+
+
+\begin{thebibliography}{9}
+\bibitem{additive} 
+Shuo Yin
+\textit{Additive Manufacturing}. 
+\\\texttt{https://www.sciencedirect.com/science/article/pii/S2214860417302993}
+
+
+\bibitem{wiki} 
+From Wikipedia, the free encyclopedia
+\textit{Cold spraying}. 
+\\\texttt{https://en.wikipedia.org/wiki/Cold\_spraying}
+
+\bibitem{wikil} 
+From Wikipedia, the free encyclopedia
+\textit{Dysza de Lavala}. 
+\\\texttt{https://pl.wikipedia.org/wiki/Dysza\_de\_Lavala}
+\end{thebibliography}
+\end{document}
+

@@ -1,0 +1,135 @@
+\documentclass[13pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}%matma
+\usepackage{graphicx}%zdjecia
+\usepackage{siunitx}
+\usepackage{a4wide}
+\graphicspath{{./figures/}}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lib}
+
+
+\definebox{definition}{black!60}
+
+
+\title{Natryskiwanie plazmowe}
+\author{Mikołaj Małecki 237339 K00-24b}
+\begin{document}
+	\maketitle
+	
+\section{Wprowadzenie}
+Natryskiwanie plazmowe to technologia głównie odpowiedzialna za nanoszenie warstw, szeroko stosowana branżach:
+\begin{itemize}
+\item aeronautyki
+\item automotive
+\item przemysłowych turbin gazowych
+\item bioinżynierii, elektronice etc...
+\end{itemize}
+Technika ta stosowana jest ze względu na możliwość stosowania szerokiej gamy materiałów nanoszonych oraz szybkiego procesu nanoszenia powłoki (do kilku kilogramów na godzinę \cite{persp}). W przeciwieństwie do omawianej na wcześniejszych zajęciach techniki cold spray, w metodzie natryskiwania plazmowego czynnik roboczy doznaje przetopu w procesie nanoszenia warstwy - co ujednolica strukturę powłoki (polepszając same właściwości powłoki).
+
+Żeby zrozumieć znaczenie tej technologii najpierw trzeba wyjaścnić nazwę. Słowo \textit{natryskiwanie} oznacza wyrzut czynnika roboczego z określonymi parametrami za pomocą specjalnych głowic:
+\fig{0.7}{dysza}{Koncepcja procesu natryskiwania plazmowego z elektrodowego palnika plazmowego \cite{dysz}}
+
+\newpage
+
+Pomimo wielu zalet tego typu palnika i szerokiego zastosowania przemysłowego, posiada parę wad:
+\begin{itemize}
+\item niestabilny łuk
+\item erozja elektrod
+\item promieniowy wtrysk materiału roboczego
+\end{itemize}
+
+
+
+Drugim słowem, które trzeba wyjaśnić to sama \textit{plazma}. Definicja wg. \cite{plazma}:
+\begin{definition}[Plazma]
+Zjonizowana materia o stanie skupienia przypominającym gaz, w którym znaczna część cząstek jest naładowana elektrycznie.
+\end{definition}
+Z uwagi na naturę plazmy świetnie się ona nadaje do technik natryskowych odpowiednich elementów ze względu na jej wysoką energetyczność i możliwość kontrolowanego transportu czynnika w strumieniu.
+
+\fig{0.6}{plz}{Plazma widoczna w procesie natryskiwania plazmowego}
+
+\section{Palniki plazmowe}
+\subsection{O konwencjonalnym palniku plazmowym}
+Strumień plazmy jest produkowany głównie przez stałoprądowe palniki plazmowe o prostej konstrukcji - składających się z katody w kształcie pręta domieszkowaną wolframem, ze stożkową końcówką i chłodzoną wodą miedzianą anoda. Zasadniczo wykorzystuje gaz o wysokiej masie atomowej (Ar, N2) zmieszany z
+gazem o wyższej przewodności cieplnej (H2, He) lub lepkości (He).
+
+Konwencjonalny planik działa przy niskim napięciu łuku (70 V), ale przy stosunkowo wysokich prądach
+(400–1 000 A). Wytwarza strumienie plazmy o określonej entalpii w zakresie od 5 do 35 $\frac{MJ}{kg}$. Na wyjściu z dyszy temperatura gazu wynosi około 10 000–12 000 K a prędkość
+od 400 do 2600 m / s. Zazwyczaj materiał powłokowy wstrzykuje się do strumienia plazmy
+promieniowo do osi palnika kilka milimetrów przed lub za wylotem dyszy.
+\cite{persp}
+
+\newpage
+
+\subsection{Współczesne palniki plazmowe}
+Wysoka entalpia właściwa jest zasadniczo warunkiem natryskiwania materiałów ogniotrwałych, zapewnia to ich równomierną i homogeniczną strukturę. Zwiększanie natężenia prądu palnika oraz zawartości gazu dwuatomowego zwiększają entalpię lecz niestety zarazem przyśpieszają zużycie narzędzia doprowadzając do erozji. Rozwiązaniem tego problemu jest zwiększenie napięcie zamiast prądu łuku, można to zrobić za pomocą
+kaskadowania anod składających się ze stosu miedzianych pierścieni izolowanych od siebie (z ang. \textit{neutrodes}) który zakańcza pierścień anodowy, do którego przyczepia się łuk.
+\fig{0.7}{arc}{Pistolet natryskowy z potrójną katodą firmy Oerlikon \cite{prod}}
+
+\section{Technologie natrysku plazmowego}
+Rynek technologii natrysku plazmowego jest zdominowany przez rynek przemysłowych turbin - wykonywania powłok termicznych w celu ochrony powierzchni metalowych elementów w najgorętszych miejscach turbin używanych generacji elektryczności lub na przykład napędu samolotów.
+
+Techniki plazmowe mogą być podzielone ze względu na kategorie:
+\begin{enumerate}
+\item Sposób uzyskania strumienia plazmy
+\begin{itemize}
+\item prądem stałym (\textit{DC plasma})
+\item plazma wyindukowana (\textit{RF plasma})
+\end{itemize}
+\item Medium formujące plazmę
+\begin{itemize}
+\item plazma stabilizowana gazem \textit{(gas-stabilized plasma: GSP)}, gdzie plazma tworzy się z gazu -  zazwyczaj argon, wodór, hel lub ich mieszaniny
+\item plazma stabilizowana wodą \textit{(water-stabilized plasma: WSP)}, w której plazma tworzy się z wody (poprzez odparowanie, dysocjację i jonizację) lub innej odpowiedniej cieczy
+\item plazma hybrydowa \textit{(hybrid plasma)} z połączoną stabilizacją gazem i cieczą, zwykle argon i woda
+\end{itemize}
+\item Środowisko natryskowe
+\begin{itemize}
+\item atmosferyczne natryskiwanie plazmy (APS), wykonywane w powietrzu atmosferycznym
+\item rozpylanie plazmowe w kontrolowanej atmosferze (CAPS), zwykle wykonywane w zamkniętej komorze, wypełnionej gazem obojętnym lub opróżnionej. odmiany CAPS: 
+\begin{itemize}
+\item wysokociśnieniowe natryskiwanie plazmowe (HPPS)
+\item niskociśnieniowe natryskiwanie plazmowe (LPPS), których skrajnym przypadkiem jest próżniowe natryskiwanie plazmowe
+\end{itemize}
+\item podwodne opryskiwanie plazmą
+\end{itemize}
+\end{enumerate}
+
+
+
+
+
+\begin{thebibliography}{9}
+\bibitem{persp} 
+Armelle Vardelle, Christian Moreau, Nickolas J. Themelis, Christophe Chazelas
+\textit{A Perspective on Plasma Spray Technology}. 
+\\\texttt{https://www.researchgate.net/profile/Armelle\_Vardelle/publication/269419991\_A\_Perspective\_on\_Plasma\_Spray\_Technology/links/54bfdf050cf28eae4a6634c2/A-Perspective-on-Plasma-Spray-Technology.pdf}
+
+\bibitem{dysz} 
+The Open University
+\textit{Thermal spraying (Hardfacing) }. 
+\\\texttt{https://www.open.edu/openlearn/science-maths-technology/engineering-technology/manupedia/thermal-spraying-hardfacing}
+
+\bibitem{plazma} 
+Wikipedia
+\textit{Plazma}. 
+\\\texttt{https://pl.wikipedia.org/wiki/Plazma}
+
+\bibitem{therm} 
+Wikipedia
+\textit{Thermal spraying}. 
+\\\texttt{https://en.wikipedia.org/wiki/Thermal\_spraying}
+
+\bibitem{plz} 
+MTUAeroEngines
+\textit{Plasma Spraying in Engine Construction - Thermal Processes at MTU}. 
+\\\texttt{https://www.youtube.com/watch?v=sfbfObSU1V0}
+
+\bibitem{prod} 
+Oerlikon
+\textit{Atmospheric Plasma Spray Solutions - Brochure}. 
+\\\texttt{https://www.oerlikon.com/metco/en/products-services/coating-equipment/thermal-spray/spray-guns/coating-equipment-plasma/ipro-90/}
+\end{thebibliography}
+\end{document}
+

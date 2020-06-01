@@ -1,0 +1,54 @@
+\documentclass[13pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}%matma
+\usepackage{graphicx}%zdjecia
+\usepackage{siunitx}
+\usepackage{a4wide}
+\usepackage[htt]{hyphenat}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lib}
+\usepackage{listings}
+
+\definebox{definition}{black!60}
+
+\begin{document}
+\begin{enumerate}
+\item Przeczytaj:
+
+\texttt{https://forbot.pl/forum/topic/5180-kurs-programowanie-mikrokontrolerow-avr-w-jezyku-assembler-czesc-4/}
+
+\item Napisz szablon kodu assembler i zacznij od części programu która poprawnie ustawi ADC - po ludzku wrzucasz jedynki i 0 w te bity rejestrów ADMUX oraz ADCSRA tak żeby się włączyło z daną szybkością etc.
+
+Przykład:
+\fig{1}{code}{}
+
+\item Napisz kod który przeniesie dane z bufora ADC (kieszonka gdzie znajdują się kolejne pomiary napięcia z odpowiedniej nóżki mikokontrolera) na dany port (8 nóżek - bajt) 
+
+Przykład:
+
+
+
+main: 					//program glowny
+
+sbic ADCSRA, ADIF		//jeśli bit ADIF w rejestrze ADCSRA nie jest ustawiony(konwersja nie gotowa) to pomiń następną instrukcje
+
+rcall load\_OCR			//wywołaj poprogram który załaduje wartość z przetwornika ADC do rejestru OCR0
+
+rjmp main				//instrukcja zostanie wykonana gdy konwersja nie jest jeszcze gotowa ,tym samym pętla ta wykonuje się, gdy oczekujemy na konwersje
+
+
+
+load\_OCR:				//podprogram ładujący wartość z rejestru ADCH do rejestru OCR0
+
+in R16, ADCH			//załaduj wartośc z ADCH do R16
+
+out OCR0, R16			//załaduj wartośc z R16 do OCR0
+
+sbi ADCSRA, ADSC		//ustaw bit ADSC w rejestrze ADCSRA , powoduje to wyzwolenie kolejnej konwersji ADC
+
+ret						//powrót do podprogramu main
+
+\end{enumerate}
+\end{document}
+

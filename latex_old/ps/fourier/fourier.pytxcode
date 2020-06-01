@@ -1,0 +1,86 @@
+=>PYTHONTEX#py#default#defaultverb#0#verbatim#####83#
+def make_func(func_L, func_R, amp, f):
+    dx = 1
+    time = np.arange(0, num_periods * f, dx)
+    h_T = int(np.floor(len(time)/(num_periods*2)))
+    func = np.zeros_like(time)
+
+    for i in range(num_periods):
+        func[i*2 * h_T : (i*2+1) * h_T] = func_L(h_T) * amp
+        func[(i*2+1) * h_T : (i*2+2) * h_T] = func_R(h_T) * amp
+    return Signal(time/1000, time/1000, func/1000, dx/1000)
+=>PYTHONTEX#py#default#defaultverb#1#verbatim#####97#
+def m_approx(signal, n_harmonics):
+    A0 = np.sum(signal.y * np.ones_like(signal.x)) * signal.dx
+    fFS = A0/2
+
+    A = np.zeros(n_harmonics)
+    B = np.zeros(n_harmonics)
+    for k in range(n_harmonics):
+        A[k] = np.sum(signal.y * np.cos(np.pi*(k+1)*signal.time)) * signal.dx
+        B[k] = np.sum(signal.y * np.sin(np.pi * (k+1)*signal.time)) * signal.dx
+        fFS += A[k]*np.cos(np.pi*(k+1)*signal.time) + B[k]*np.sin(np.pi * (k+1)*signal.time)
+    return Signal(signal.time, signal.x, fFS, signal.dx)
+=>PYTHONTEX#py#default#defaultverb#2#verbatim#####112#
+def make_plots(signal: Signal, name: str, coefs: int):
+    fig, ax = plt.subplots(2,2)
+
+    ax[0, 0].plot(signal.x, signal.y, label=f"{name} - original")
+    ax[0, 0].legend(loc="upper right")
+
+    sig = m_approx(signal, coefs)
+    ax[0, 1].plot(sig.x, sig.y, label=f"{name} - estimated")
+    ax[0, 1].legend(loc="upper right")
+    ax[1, 0].plot(sig.x, sig.y)
+    ax[1, 0].plot(signal.x, signal.y, label=f"{name} - both")
+    ax[1, 0].legend(loc="upper right")
+
+    ax[1, 1].plot(sig.x, sc.fft(sig.y), label=f"fft")
+    ax[1, 1].legend(loc="upper right")
+
+    plt.show(fig)
+=>PYTHONTEX#py#default#defaultverb#3#verbatim#####135#
+L = lambda h_T: np.ones(h_T)
+P = lambda h_T: np.zeros(h_T)
+square = make_func(L,P,1,100)
+make_plots(square, "square", 200)
+=>PYTHONTEX#py#default#defaultverb#4#verbatim#####148#
+L = lambda h_T: np.arange(0, h_T)
+P = lambda h_T: np.arange(0, h_T)
+saw_tooth = make_func(L,P,1,100)
+make_plots(saw_tooth, "saw_tooth", 200)
+=>PYTHONTEX#py#default#defaultverb#5#verbatim#####163#
+L = lambda h_T: np.hstack([np.arange(0, h_T/2), np.ones(int(h_T/2))*int(h_T/2)])
+P = lambda h_T: np.hstack([np.ones(int(h_T/2))*int(h_T/2), np.flipud(np.arange(0, h_T/2))])
+trapeze = make_func(L,P,1,100)
+make_plots(trapeze, "trapeze", 200)
+=>PYTHONTEX#py#default#defaultverb#6#verbatim#####177#
+L = lambda h_T: np.arange(0, h_T)
+P = lambda h_T: np.flipud(np.arange(0,h_T))
+triangle = make_func(L,P,1,20)
+make_plots(triangle, "triangle", 400)
+=>PYTHONTEX:SETTINGS#
+version=0.17
+outputdir=pythontex-files-fourier
+workingdir=.
+workingdirset=false
+gobble=none
+rerun=default
+hashdependencies=default
+makestderr=false
+stderrfilename=full
+keeptemps=none
+pyfuture=default
+pyconfuture=none
+pygments=true
+pygglobal=:GLOBAL||
+fvextfile=-1
+pyconbanner=none
+pyconfilename=stdin
+depythontex=false
+pygfamily=py|python3|
+pygfamily=pycon|pycon|
+pygfamily=sympy|python3|
+pygfamily=sympycon|pycon|
+pygfamily=pylab|python3|
+pygfamily=pylabcon|pycon|

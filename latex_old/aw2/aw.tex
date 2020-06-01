@@ -1,0 +1,117 @@
+\documentclass[13pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}%matma
+\usepackage{graphicx}%zdjecia
+\usepackage{siunitx}
+\usepackage{a4wide}
+\usepackage{datetime}
+\graphicspath{{./figures/}}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lib}
+
+\newdate{date}{22}{05}{2020}
+\date{\displaydate{date}}
+
+\title{Ustawianie i pomiar narzędzi w dobie przemysłu 4.0}
+\author{Mikołaj Małecki 237339}
+\begin{document}
+	\maketitle
+
+% ------------------------------------------------- BEGIN ------------------------------------------------- %	
+
+\section{Wprowadzenie}
+\textbf{Industry 4.0} jest to trend we współczesnym przemyśle (czwartej rewolucji przemysłowej) polegający na integracji znanych mechanizmów z nowo rozwijanymi działami IT. Takimi jak:
+
+\begin{enumerate}
+\item \textit{cloud computing}
+\item \textit{big data}
+\item \textit{narrow AI (machine/deep/neural learning)}
+\item \textit{IOT}
+\item \textit{computer vision}
+\end{enumerate}
+
+\fig{0.7}{4}{Kluczowe technologie Przemysłu 4.0 \cite{4}}
+
+W połączeniu z obecną dostępnością i ceną komponentów elektronicznych pozwoliło to na wykorzystanie tanich standardowych elementów w niemożliwy wcześniej sposób (np: drukarki 3D, smart czujniki ładowane raz na kilka lat). Rozwój przemysłu 4.0 pozwolił także na wykorzystanie skomplikowanych systemów (jak np: roboty przemysłowe) w nowy nie znany wcześniej sposób (np: smart factories).
+
+Zastosowanie najnowszych systemów IT w przemyśle pozwoliło na zmianę poglądu na wiele aspektów w przemyśle jak wytwarzanie addytywne zamiast substraktywnego, czy współpraca człowieka ze zrobotyzowanymi stanowiskami. 
+
+\newpage
+% --------------------
+
+\fig{0.5}{ur}{Roboty współpracujące firmy Universal Robots \cite{ur}}
+
+Jeśli natomiast chodzi o pozycjonowanie i pomiary narzędzi w stosunku do przemysłu 4.0 to głównymi ulepszeniami są:
+
+\begin{itemize}
+\item akwizycja danych
+\item analiza danych
+\item integracja wielu funcjonalności dla jednego narzędzia
+\item możliwość monitoringu stanu narzędzie w czasie rzeczywistym
+\item możliwość kooperacji robotów z ludźmi
+\end{itemize}
+
+Przykładów, które można by przytoczyć przy tym temacie jest wiele. Postaram się dlatego omówić jeden specyficzny przykład smart narzędzia do roztaczania w przemyśle automotive \cite{smart}.
+
+\fig{0.5}{smart}{Budowa omawianego narzędzia \cite{smart}}
+
+\newpage
+% --------------------
+
+\section{Omówienie przykładu inteligentnego narzędzia}
+Pomysł wykonania takiego narzędzia zrodził się ze względu na potrzebę zrekompensowania opadania wytaczadła i skutków sił skrawania. Pomimo zwiększenia zwinności wytwórczej poprzez stosowanie maszyn cnc w obszarze automotive, problemem pozostaje potrzeba wyspecjalizowanych narzędzi do roztaczania otworów wałów korbowych.
+
+\fig{0.5}{tool}{Struktura wytaczarek liniowych: (a) konwencjonalne narzędzie do wytaczania linii ze wspornikiem i wieloma wkładkami skrawającymi, (b) projekt  systemu wytaczania z wykorzystaniem inteligentnego narzędzia. \cite{smart}}
+
+Użycie takiego typu narzędzia w procesie technologicznym pozwala na:
+\begin{itemize}
+\item zautomatyzowane zmienianie narzędzi
+\item wyeliminowanie podpory łożyskowej
+\item bezpośredni pomiar parametrów procesu
+\end{itemize}
+
+Narzędzie składa się z [Rysunek 3]
+\begin{enumerate}
+\item systemu pomiarowego
+\item kontrolera cyfrowego
+\item płytki skrawającej
+\item mechanizmu posuwu końcówki narzędzia
+\item zasilania i systemu komunikacji
+\end{enumerate}
+
+\newpage
+
+Pomairy sił skrawających opierają się na estymacji błedu w czasie rzeczywistym, poniżej porównanie pomiaru z użyciem estymatora do pomiaru dynamometrem.
+
+\fig{0.5}{force}{Porównanie sił tnących dla klasycznego narzędzia  i omawianego inteligentnego narzędzia \cite{smart}}
+
+\section{Podsumowanie}
+Żeby w pełni zautomatyzować procesy technologiczne wytwarzania elementów potrzeba maszyn zwinnych, inteligentnych - podejmujących decyzje. W innym wypadku nie można mówić o pełnej automatyzacji. Dlatego jeśli chodzi o narzędzia w przemyśle 4.0 muszą one umieć się komunikować, zmieniać się w zależności od potrzeby i dostosowywać do istniejących warunków a nawet wysyłać informacje diagnostyczne do chmury.
+
+% ------------------------------------------------- BIB ------------------------------------------------- %
+
+\begin{thebibliography}{9}
+\bibitem{4} 
+dr inż. Małgorzata Kaliczyńska
+\textit{Kluczowe technologie Przemysłu 4.0}. 
+\\\texttt{https://automatykaonline.pl/Artykuly/Przemysl-4.0/Kluczowe-technologie-Przemyslu-4.0}
+
+\bibitem{ur} 
+Zbigniew Piątek
+\textit{Coboty – roboty dostępne dla każdego}. 
+\\\texttt{https://przemysl-40.pl/index.php/2017/11/05/roboty-dostepne-dla-kazdego/}
+
+\bibitem{smart} 
+Byung-Kwon Min, George O'Neal, Yoram Koren, Zbigniew Pasek
+\textit{A smart boring tool for process control}. 
+\\\texttt{https://www.sciencedirect.com/science/article/pii/S095741580200020X}
+\end{thebibliography}
+\end{document}
+
+
+%\fig{0.7}{img}{... \cite{source}}
+
+%\begin{definition}[Definition]
+%...
+%\end{definition}
