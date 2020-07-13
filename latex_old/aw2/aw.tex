@@ -5,64 +5,43 @@
 \usepackage{graphicx}%zdjecia
 \usepackage{siunitx}
 \usepackage{a4wide}
+\usepackage{xurl}
 \usepackage{datetime}
 \graphicspath{{./figures/}}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{lib}
 
+
 \newdate{date}{22}{05}{2020}
 \date{\displaydate{date}}
 
-\title{Ustawianie i pomiar narzędzi w dobie przemysłu 4.0}
-\author{Mikołaj Małecki 237339}
+\title{Narzędzia modułowe i mechatroniczne}
+\author{Mikołaj Małecki, Adam Kamiński, Patryk Augustyniak}
 \begin{document}
 	\maketitle
 
 % ------------------------------------------------- BEGIN ------------------------------------------------- %	
 
 \section{Wprowadzenie}
-\textbf{Industry 4.0} jest to trend we współczesnym przemyśle (czwartej rewolucji przemysłowej) polegający na integracji znanych mechanizmów z nowo rozwijanymi działami IT. Takimi jak:
+Modułowe systemy narzędziowe umożliwiają zbudowanie zoptymalizowanego i dostosowanego zespołu do konkretnego zastosowania przy użyciu standardowych elementów. Stosunkowo niewielki zapas może stworzyć ogromną liczbę kombinacji, umożliwiając stosowanie wspólnych systemów narzędziowych w całym centrum wytwórczym.
 
-\begin{enumerate}
-\item \textit{cloud computing}
-\item \textit{big data}
-\item \textit{narrow AI (machine/deep/neural learning)}
-\item \textit{IOT}
-\item \textit{computer vision}
-\end{enumerate}
-
-\fig{0.7}{4}{Kluczowe technologie Przemysłu 4.0 \cite{4}}
-
-W połączeniu z obecną dostępnością i ceną komponentów elektronicznych pozwoliło to na wykorzystanie tanich standardowych elementów w niemożliwy wcześniej sposób (np: drukarki 3D, smart czujniki ładowane raz na kilka lat). Rozwój przemysłu 4.0 pozwolił także na wykorzystanie skomplikowanych systemów (jak np: roboty przemysłowe) w nowy nie znany wcześniej sposób (np: smart factories).
-
-Zastosowanie najnowszych systemów IT w przemyśle pozwoliło na zmianę poglądu na wiele aspektów w przemyśle jak wytwarzanie addytywne zamiast substraktywnego, czy współpraca człowieka ze zrobotyzowanymi stanowiskami. 
+Modułowy interfejs systemowy jest interfejsem pośrednim umieszczonym między interfejsem maszyny a chwytem lub wkładką. Aplikacje i maszyny stawiają różne wymagania modułowemu interfejsowi systemowemu.
 
 \newpage
 % --------------------
 
-\fig{0.5}{ur}{Roboty współpracujące firmy Universal Robots \cite{ur}}
 
-Jeśli natomiast chodzi o pozycjonowanie i pomiary narzędzi w stosunku do przemysłu 4.0 to głównymi ulepszeniami są:
 
-\begin{itemize}
-\item akwizycja danych
-\item analiza danych
-\item integracja wielu funcjonalności dla jednego narzędzia
-\item możliwość monitoringu stanu narzędzie w czasie rzeczywistym
-\item możliwość kooperacji robotów z ludźmi
-\end{itemize}
 
-Przykładów, które można by przytoczyć przy tym temacie jest wiele. Postaram się dlatego omówić jeden specyficzny przykład smart narzędzia do roztaczania w przemyśle automotive \cite{smart}.
 
+\newpage
+% --------------------
+\section{Przykłady}
+\subsection{Narzędzie do roztaczania}
 \fig{0.5}{smart}{Budowa omawianego narzędzia \cite{smart}}
 
-\newpage
-% --------------------
+Pomysł wykonania takiego narzędzia zrodził się ze względu na potrzebę zrekompensowania opadania wytaczadła i skutków sił skrawania. Pomimo zwiększenia zwinności wytwórczej poprzez stosowanie maszyn cnc w obszarze automotive, problemem pozostaje potrzeba wyspecjalizowanych narzędzi do roztaczania otworów wałów korbowych.\\
 
-\section{Omówienie przykładu inteligentnego narzędzia}
-Pomysł wykonania takiego narzędzia zrodził się ze względu na potrzebę zrekompensowania opadania wytaczadła i skutków sił skrawania. Pomimo zwiększenia zwinności wytwórczej poprzez stosowanie maszyn cnc w obszarze automotive, problemem pozostaje potrzeba wyspecjalizowanych narzędzi do roztaczania otworów wałów korbowych.
-
-\fig{0.5}{tool}{Struktura wytaczarek liniowych: (a) konwencjonalne narzędzie do wytaczania linii ze wspornikiem i wieloma wkładkami skrawającymi, (b) projekt  systemu wytaczania z wykorzystaniem inteligentnego narzędzia. \cite{smart}}
 
 Użycie takiego typu narzędzia w procesie technologicznym pozwala na:
 \begin{itemize}
@@ -70,6 +49,11 @@ Użycie takiego typu narzędzia w procesie technologicznym pozwala na:
 \item wyeliminowanie podpory łożyskowej
 \item bezpośredni pomiar parametrów procesu
 \end{itemize}
+
+\fig{0.5}{tool}{Struktura wytaczarek liniowych: (a) konwencjonalne narzędzie do wytaczania linii ze wspornikiem i wieloma wkładkami skrawającymi, (b) projekt  systemu wytaczania z wykorzystaniem inteligentnego narzędzia. \cite{smart}}
+
+
+
 
 Narzędzie składa się z [Rysunek 3]
 \begin{enumerate}
@@ -86,26 +70,90 @@ Pomairy sił skrawających opierają się na estymacji błedu w czasie rzeczywis
 
 \fig{0.5}{force}{Porównanie sił tnących dla klasycznego narzędzia  i omawianego inteligentnego narzędzia \cite{smart}}
 
-\section{Podsumowanie}
-Żeby w pełni zautomatyzować procesy technologiczne wytwarzania elementów potrzeba maszyn zwinnych, inteligentnych - podejmujących decyzje. W innym wypadku nie można mówić o pełnej automatyzacji. Dlatego jeśli chodzi o narzędzia w przemyśle 4.0 muszą one umieć się komunikować, zmieniać się w zależności od potrzeby i dostosowywać do istniejących warunków a nawet wysyłać informacje diagnostyczne do chmury.
+
+\newpage
+
+\subsection{Mechatroniczny nóż tokarski}
+Usprawnienie tego narzędzia, zostało wprowadzone poprzez wprowadzenie własnego napędu oraz sensora położenia, całość sterowana jest za pomocą systemu komputerowego. Dzięki użytemu rozwiązaniu, na konwencjonalnej tokarce można uzyskać elementy o złożonym zarysie. \cite{ksiazka}
+
+\begin{enumerate}
+
+
+\item \textbf{Napęd}
+
+Ruch liniowy realizowany za pomocą silnika krokowego (silnik krokowy użyty ze względu na dokładność posuwu) oraz śrubie tocznej. Ruch realizowany jest tylko w jednej osi (posuwowy), dzięki prowadnicom, które ograniczają swobodę ruchu narzędzia. Przy śrubie o skoku 2mm, minimalny krok systemu wynosi 0,01mm.
+\item \textbf{Sensor położenia}
+
+Do realizacji pomiaru położenia mogą być użyte rożne rozwiązania:
+- sterowanie czasowe – przy zadanej prędkości obrotowej, położenie jest jest funkcja czasu i posuwu na obrót
+\begin{itemize}
+\item licznik obrotów wrzeciona – realizowane poprzez zliczanie impulsów wrzeciona z uwzględnieniem nastawionego posuwu
+\item liniał pomiarowy skojarzony z ruchem imaka - klasyczny pomiar np. suwmiarka cyfrowa
+\item optyczny system pomiarowy z zastosowaniem myszy optycznej
+\end{itemize}
+
+\item \textbf{System sterowania}
+
+System sterowania to połączenie sterownika i komputera (lub jego uproszczonej wersji mikrokontrolera). W odpowiednim programie generowany jest cały przebieg obróbki:
+\begin{itemize}
+\item wizualizacja modelu (system CAD)
+\item ustawienie parametrów obróbki
+\item wygenerowanie programu obróbki
+\item symulacja obróbki z uwzględnieniem wprowadzonych przez użytkownika danych
+\item odczyt sygnałów z sensorów
+\item sterowanie procesem
+\end{itemize}
+
+\end{enumerate}
+
+
+	Wynikiem wprowadzenia mechatronicznego narzędzia do konwencjonalnej obrabiarki jest możliwość realizowania zadań przeznaczonych dla obrabiarek sterowanych numerycznie, przez obrabiarki konwencjonalne
+
+\fig{0.5}{tok}{Narzędzie mechatroniczne rozszerzające możliwości kinematyczne obrabiarki \cite{lab}}
+
+\newpage
+
+\subsection{Narzędzie mechatroniczne do precyzyjnego toczenia wałków}
+Kolejne rozwiązanie mechatroniczne w znacznym stopniu poprawia precyzje tokarki. 
+
+\begin{itemize}
+\item \textbf{Aktuator}
+
+Realizacją sterowania zajmuje się tutaj aktuator piezoelektryczny. Jest precyzyjny, oraz dobrze dostosowany do szybkiego reagowania na sygnały.
+\item \textbf{Sensor}
+
+Role sensora spełnia tutaj laserowy czujnik przemieszczenia. Jest to wysoce precyzyjny czujnik. Układ działa na zasadzie emitera i detektora. Wiązka laserowa odbija się od lustra umieszczonego na narzędziu, wraca (po mierzalnym czasie) do detektora. Przy znanej prędkości lasera w otoczeniu, można obliczyć odległość emitera od narzędzia.
+\item \textbf{System sterowania}
+
+Za sterowanie, zbieranie danych, oraz przekazywanie ich do aktuatora odpowiada sterownik komputerowy. Obliczenia, oraz przekazywanie danych musi być szybkie, ponieważ od tego zależy precyzja narzędzia.
+\end{itemize}
+
+\fig{0.75}{narz}{Schemat narzędzia \cite{ksiazka}}
+
 
 % ------------------------------------------------- BIB ------------------------------------------------- %
-
+\newpage
 \begin{thebibliography}{9}
-\bibitem{4} 
-dr inż. Małgorzata Kaliczyńska
-\textit{Kluczowe technologie Przemysłu 4.0}. 
-\\\texttt{https://automatykaonline.pl/Artykuly/Przemysl-4.0/Kluczowe-technologie-Przemyslu-4.0}
-
-\bibitem{ur} 
-Zbigniew Piątek
-\textit{Coboty – roboty dostępne dla każdego}. 
-\\\texttt{https://przemysl-40.pl/index.php/2017/11/05/roboty-dostepne-dla-kazdego/}
 
 \bibitem{smart} 
 Byung-Kwon Min, George O'Neal, Yoram Koren, Zbigniew Pasek
 \textit{A smart boring tool for process control}. 
 \\\texttt{https://www.sciencedirect.com/science/article/pii/S095741580200020X}
+
+
+\bibitem{lab} 
+Hubert Skowronek
+\textit{Narzędzia modułowe i mechatroniczne - instrukcja do labolatorium}.
+
+\bibitem{ksiazka} 
+P. Cichosz, M. Kuzinovski
+\textit{Sterowane i mechatroniczne narzędzia skrawające}.
+
+\bibitem{san} 
+SANDVIK
+\textit{Modularne rozwiązania}.
+
+\url{https://www.sandvik.coromant.com/en-gb/knowledge/machine-tooling-solutions/tooling-considerations/pages/modular-solutions.aspx}
 \end{thebibliography}
 \end{document}
 
